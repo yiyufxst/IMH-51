@@ -1,4 +1,4 @@
-﻿#include<reg52.h>	//51单片机常用的头文件，定义常用的IO口
+#include<reg52.h>	//51单片机常用的头文件，定义常用的IO口
 
 #define uchar unsigned char    //宏定义一个无符号的char类型
 #define uint unsigned int	//宏定义一个无符号的int类型
