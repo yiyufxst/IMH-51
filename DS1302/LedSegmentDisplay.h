@@ -2,7 +2,7 @@
 #define _LedSegmentDisplay_
 
 #define uchar unsigned char    //宏定义一个无符号的char类型
-#define uint unsigned int	//宏定义一个无符号的int类型
+#define uint unsigned int      //宏定义一个无符号的int类型
     
 sbit du = P2^6;    //数码管显示值
 sbit we = P2^7;    //选择某个数码管显示
