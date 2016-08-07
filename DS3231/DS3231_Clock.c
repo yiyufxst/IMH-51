@@ -1,6 +1,7 @@
-#include<reg52.h>	            //51单片机常用的头文件，定义常用的IO口
-#include<DS3231.h>              //DS3231模块自定义头文件
-#include<LedSegmentDisplay.h>   //数码管显示自定义头文件
+#include<reg52.h>                //51单片机常用的头文件，定义常用的IO口
+#include<DS3231.h>               //DS3231模块自定义头文件
+#include<LedSegmentDisplay.h>    //数码管显示自定义头文件
+#include<Led.h>                  //LED灯自定义头文件
 
 #define uchar unsigned char    //宏定义一个无符号的char类型
     
@@ -39,12 +40,15 @@ void AlarmClock(uchar hour, uchar minute, uchar second)    //设置闹钟
     if(clock[0]==CurrentTime.Hour && clock[1]==CurrentTime.Minute && clock[2]==CurrentTime.Second)
     {
         warn(8);
+        led_flash(1, 0, 1);
     }
 }
 void main()
 {
     uchar t0, t1, t2, t3, t4, t5;
     DS3231Init();
+    led_off();
+    led_off1();
     if(!BcdByte(DS3231ReadData(DS3231_SECOND)))
     {
         DS3231SetTime(DS3231_HOUR, 11);    //设置时间为11:12:41
@@ -62,7 +66,7 @@ void main()
         t4 = CurrentTime.TimeString[6];
         t5 = CurrentTime.TimeString[7];
         display(table[t0], table[t1], table[t2], table[t3], table[t4], table[t5]);
-        AlarmClock(11, 13, 51);        
+        AlarmClock(17, 17, 01);        
     }
 }
  

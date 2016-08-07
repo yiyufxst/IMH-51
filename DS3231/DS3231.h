@@ -2,7 +2,7 @@
 #define _DS3231_
 
 #define uchar unsigned char    //宏定义一个无符号的char类型
-#define uint unsigned int	   //宏定义一个无符号的int类型
+#define uint unsigned int      //宏定义一个无符号的int类型
 
 sbit DS3231_SDA = P2^0;    //数据线引脚
 sbit DS3231_SCL = P2^1;    //时钟线引脚
