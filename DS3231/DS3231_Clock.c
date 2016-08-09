@@ -6,6 +6,7 @@
 #define uchar unsigned char    //宏定义一个无符号的char类型
     
 sbit sound = P2^3;    //蜂鸣器IO口
+sbit play  = P1^4;    //ISD1820单次播放IO口
     
 uchar code table[] = {         //数码管显示表
 0x3f  , 0x06 , 0x5b , 0x4f ,
@@ -41,6 +42,8 @@ void AlarmClock(uchar hour, uchar minute, uchar second)    //设置闹钟
     {
         warn(8);
         led_flash(1, 0, 1);
+        play = 0;   //电压的变化触发ISD1820的播放
+        play = 1;
     }
 }
 void main()
@@ -66,7 +69,7 @@ void main()
         t4 = CurrentTime.TimeString[6];
         t5 = CurrentTime.TimeString[7];
         display(table[t0], table[t1], table[t2], table[t3], table[t4], table[t5]);
-        AlarmClock(17, 17, 01);        
+        AlarmClock(15, 46, 01);        
     }
 }
  
